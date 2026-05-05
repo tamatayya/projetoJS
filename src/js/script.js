@@ -44,3 +44,53 @@ Titulo.innerText= "O DOM MUDOU o TEXO"
 
 Titulo.style.color="blue"
 
+
+// CRIANDO O APP 
+
+//  primeira coisa a fazer é o banco de dados!
+
+    const produtos = [
+        {nome: "Teclado Mêcanico", preco:300, emPromocao:true},
+        {nome: "Mouse Gamer", preco:150, emPromocao:false},
+        {nome: "Monitor Gamer", preco:1300, emPromocao:true},
+        {nome: "Mousepad XL", preco:400, emPromocao:false}
+    ];
+
+    // map cria um novo array identificando uma condicao
+    const container = document.getElementById("listar-produtos")
+    const mostrarTotal = document.getElementById("resultado-total")
+
+    // FUNCTION map: trasnforma o array de objetos em um array de strings html e css
+
+    function todosProdutos(lista){
+        mostrarTotal.innerText="";
+        const htmlProdutos =lista.map(item =>`
+            <div class="card">
+                <h3>${item.nome}</h3>
+                <p>Preço: R$ ${item.preco}</p>
+                ${item.emPromocao ? '<span class="tag">Promoção</span>': ''}
+            </div>
+            `).join(''); //transforma o array em uma unica string
+
+            container.innerHTML=htmlProdutos;
+
+    }
+
+// PROCURAR NO CLAUDE O QUE ESSE FUNCTION TODOS PRODUTOS FAZ + COMO USAR OS PARAMETROS
+
+//FILTER - cria uma nova lista apenas com o que selecionou
+
+function filtrarPromocoes(){
+    const promocionais = produtos.filter(item => item.emPromocao); //arrow function?? 
+    todosProdutos(promocionais);
+
+}
+
+// REDUCE = Reduz o array a um unico valor(soma dos precos)
+
+function calcularTotal(){
+    const total = produtos.reduce((acumulador,item)=>{
+        return acumulador + item.preco;
+    },0);
+    mostrarTotal.innerText = `Valor Total R$ ${total}`;
+}
