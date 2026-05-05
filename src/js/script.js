@@ -37,9 +37,10 @@ console.log(`R$ ${precoFinal.toFixed(2)}`)
 // template strings, concatenar com `
 
 
-
+//DOM (DOcumento OBJECT MODEL)
 const Titulo=document.getElementById("titulo")
 
 Titulo.innerText= "O DOM MUDOU o TEXO"
 
 Titulo.style.color="blue"
+

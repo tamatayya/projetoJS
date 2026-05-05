@@ -8,7 +8,23 @@
      <link rel="stylesheet" href="./src/css/estilo.css">
 </head>
 <body>
-    <h1 id="titulo"> Titulo Origginal</h1>    
+
+    <header>
+        
+        <h2 id="titulo"> Titulo Origginal</h2>    
+        <h1>Meu App Produtos</h1>
+    </header>
+    <main class="container">
+        <div class="btn">
+            <button onclick="todosProdutos()">Mostrar Todos(Map)</button>
+            <button onclick="filtrarPromocoes()">Apenas Promoções(Filter)</button>
+            <button onclick="calcularTotal()">Calcular Total(Reduce)</button>
+         </div>
+
+         <div id="listar-produtos" class="produtos"></div>
+         <div id="resultado-total"></div>
+    </main>
+
 
     <!-- JS EXTERNO -->
      <script src="./src/js/script.js"></script>
